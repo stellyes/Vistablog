@@ -30,7 +30,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isAlphanumeric: true,
         len: [8], // Min password length of 8 characters
       },
     },

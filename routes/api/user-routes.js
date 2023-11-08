@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const bcrypt = require("bcrypt");
 const { User, BlogPost, Comment } = require("../../models");
 
 // The '/api/user' routes
@@ -38,7 +39,13 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   // create new user
   try {
-    const userData = await User.create(req.body);
+    const newUser = req.body;
+
+    // Securely store password by encrypting data
+    newUser.password = await bcrypt.hash(req.body.password, 10);
+
+    const userData = await User.create(newUser);
+
     res.status(200).json(userData);
   } catch (err) {
     res.status(500).json(err);
