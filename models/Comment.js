@@ -10,7 +10,10 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
+    comment_text: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
