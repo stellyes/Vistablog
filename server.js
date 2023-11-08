@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
@@ -23,8 +24,11 @@ const sess = {
   }),
 };
 
+// Create handlebars instance
+const hbs = handlebars.create();
+
 app.use(session(sess));
-app.engine("handlebars", handlebars.engine);
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Apply necessary middleware
