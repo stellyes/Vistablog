@@ -18,3 +18,7 @@ router.get("/", async (req, res) => {
     res.render("500");
   }
 });
+
+router.get("/login");
+
+module.exports = router;
