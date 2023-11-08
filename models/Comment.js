@@ -10,7 +10,13 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-
+    comment_text: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        len: [3], // Keeps empty comments from being posted
+      },
+    },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
