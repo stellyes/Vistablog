@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["id", "username"],
         },
       ],
     });
@@ -23,14 +23,11 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   // get specific comment based on req.params.id
   try {
-    const commentData = await Comment.findByPk({
-      where: {
-        id: req.params.id,
-      },
+    const commentData = await Comment.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["id", "username"],
         },
       ],
     });

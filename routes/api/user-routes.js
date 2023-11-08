@@ -18,10 +18,8 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   // get specific user based on req.params.id
   try {
-    const userData = await User.findByPk({
-      where: {
-        id: req.params.id,
-      },
+    const userData = await User.findByPk(req.params.id, {
+      include: [{ model: BlogPost }, { model: Comment }],
     });
 
     if (!userData) {

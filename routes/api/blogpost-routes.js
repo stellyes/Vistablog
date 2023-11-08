@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["id", "username"],
         },
       ],
     });
@@ -27,10 +27,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   // get specific blog post based on req.params.id
   try {
-    const blogData = await BlogPost.findByPk({
-      where: {
-        id: req.params.id,
-      },
+    const blogData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
@@ -38,7 +35,7 @@ router.get("/:id", async (req, res) => {
         },
         {
           model: User,
-          attributes: ["username"],
+          attributes: ["id", "username"],
         },
       ],
     });
