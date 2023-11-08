@@ -43,6 +43,24 @@ const postData = [
       "In this blog post, we'll discuss the basics of blogging. Blogging is a popular way to share your thoughts and ideas with the world. Sed volutpat bibendum nulla, eu tincidunt sapien commodo vel. Fusce nec dolor urna. Nulla ac ante ac orci suscipit tristique.",
     user_id: 7,
   },
+  {
+    title: "Tech Trends",
+    blog_text:
+      "In this blog post, we'll explore the latest technology trends. Technology is constantly evolving, and it's essential to stay updated. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra dolor at vestibulum. Sed sit amet urna id quam iaculis varius.",
+    user_id: 8,
+  },
+  {
+    title: "Travel Adventures",
+    blog_text:
+      "Join me on a journey through my travel adventures. I've been to many amazing places and want to share my experiences. Sed a elit id nunc bibendum efficitur. Aliquam erat volutpat. Suspendisse eget est nec justo efficitur bibendum.",
+    user_id: 9,
+  },
+  {
+    title: "Foodie Delights",
+    blog_text:
+      "Calling all foodies! Explore the world of delicious culinary delights with me. Sed placerat ipsum a ligula rhoncus, ut efficitur arcu tincidunt. Nullam eu semper mauris. Suspendisse at dolor nec metus facilisis efficitur.",
+    user_id: 1,
+  },
 ];
 
 const seedBlogPosts = () => BlogPost.bulkCreate(postData);
