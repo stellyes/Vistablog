@@ -11,21 +11,19 @@ BlogPost.init(
       autoIncrement: true,
     },
     title: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [4], // Min 4 characters for blog title
       },
     },
     blog_text: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING(512),
       allowNull: false,
-      validate: {
-        len: [8],
-      },
+      unique: true, // Prevent spam duplicate posts
     },
     user_id: {
-      type: DataTypes.TEXT,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "user",
